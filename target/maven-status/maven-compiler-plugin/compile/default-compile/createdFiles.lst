@@ -1,0 +1,11 @@
+middleware\app\resources\BusinessProfileResources.class
+middleware\app\entity\businessProfile\InvestorsEntity.class
+middleware\app\model\shared\AddressModel.class
+middleware\app\entity\businessProfile\FounderEntity.class
+middleware\app\repo\businessProfile\InvestorsRepo.class
+middleware\app\entity\shared\AddressEntity.class
+middleware\app\services\BusinessProfileService.class
+middleware\app\Application.class
+middleware\app\model\shared\FounderModel.class
+middleware\app\repo\shared\AddressRepo.class
+middleware\app\repo\businessProfile\FoundersRepo.class
