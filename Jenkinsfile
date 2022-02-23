@@ -21,7 +21,7 @@ pipeline {
 			steps {
 				echo 'Creating container...'
 				script {
-					dockerImage = docker.build("GitHUb87/angel:${TAG}")
+					dockerImage = docker.build("sujoyb/angel:${TAG}")
 				}
 			}
 		}
@@ -30,8 +30,8 @@ pipeline {
 				echo 'Pushing to image repo...'
 				script {
 					docker.withRegistry('https://registry.hub.docker.com', 'registryCredential'){
-						docker.image("GitHUb87/angel:${TAG}").push()
-						docker.image("GitHUb87/angel:${TAG}").push("latest")
+						docker.image("sujoyb/angel:${TAG}").push()
+						docker.image("sujoyb/angel:${TAG}").push("latest")
 					}
 				}
 			}
