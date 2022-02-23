@@ -4,7 +4,7 @@ pipeline {
 	
 	environment {
 		registry = "GitHUb87/angel"
-		registryCredential = dockerhub
+		registryCredential = 'DockerHub'
 		dockerImage = ''
 		DATE = new Date().format('yy.M')
 		TAG = "${DATE}"
@@ -19,7 +19,7 @@ pipeline {
 		}
 		stage('Containerization') {
 			steps {
-				//echo 'Creating container...'
+				echo 'Creating container...'
 				script {
 					dockerImage = docker.build(registry:${TAG})
 				}
@@ -27,7 +27,7 @@ pipeline {
 		}
 		stage('Push to image repo') {
 			steps {
-				//echo 'Pushing to image repo...'
+				echo 'Pushing to image repo...'
 				script {
 					docker.withRegistry(registry, registryCredential){
 						docker.image("registry:${TAG}").push()
