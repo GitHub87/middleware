@@ -21,7 +21,7 @@ pipeline {
 			steps {
 				echo 'Creating container...'
 				script {
-					dockerImage = docker.build(registry:${TAG})
+					dockerImage = docker.build(registry:TAG)
 				}
 			}
 		}
@@ -30,8 +30,8 @@ pipeline {
 				echo 'Pushing to image repo...'
 				script {
 					docker.withRegistry(registry, registryCredential){
-						docker.image("registry:${TAG}").push()
-						docker.image("registry:${TAG}").push("latest")
+						docker.image(registry:TAG).push()
+						docker.image(registry:TAG).push("latest")
 					}
 				}
 			}
