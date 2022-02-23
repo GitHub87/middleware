@@ -21,7 +21,7 @@ pipeline {
 			steps {
 				echo 'Creating container...'
 				script {
-					dockerImage = docker.build(registry:TAG)
+					dockerImage = docker.build("GitHUb87/angel:${TAG}")
 				}
 			}
 		}
@@ -29,9 +29,9 @@ pipeline {
 			steps {
 				echo 'Pushing to image repo...'
 				script {
-					docker.withRegistry(registry, registryCredential){
-						docker.image(registry:TAG).push()
-						docker.image(registry:TAG).push("latest")
+					docker.withRegistry('https://registry.hub.docker.com', 'registryCredential'){
+						docker.image("GitHUb87/angel:${TAG}").push()
+						docker.image("GitHUb87/angel:${TAG}").push("latest")
 					}
 				}
 			}
