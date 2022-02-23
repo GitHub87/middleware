@@ -21,7 +21,7 @@ pipeline {
 			steps {
 				echo 'Creating container...'
 				script {
-					dockerImage = docker.build("sujoyb/angel:${TAG}")
+					dockerImage = docker.build("sujoyb/angel:${TAG}", "--build-arg JAR_FILE=target/middleware-0.0.1-SNAPSHOT.jar")
 				}
 			}
 		}
